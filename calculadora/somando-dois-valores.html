@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(44, 44, 44);
+        }
+        .inserindo-valores{
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            
+
+            background-color: rgb(108, 243, 108);
+            border-radius: 25px;
+        }
+        .caixa-resultado{
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            background-color: rgb(86, 124, 252);
+            border-radius: 25px;
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #resultado{
+            width: 50%;
+            height: 20px;     
+            border-radius: 25px;
+            margin: 0 auto;
+        }
+        .caixa{
+            border-radius: 25px;
+            margin-top:30px;
+            padding: 10px;
+        }
+        .caixa1{
+            border-radius: 25px;
+            padding: 10px;
+        }
+        .all{
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="all">
+
+        <div class="inserindo-valores">
+            <!-- Inserindo Valores -->
+            <input type="number" name="txtn1" id="txtn1" class="caixa">
+            <input type="number" name="txtn2" id="txtn2" class="caixa1">
+            <br>
+            <input type="button" value="Somar" onclick="somar()" class="caixa">
+        </div>
+        
+        <!-- Exibido resultado -->
+        <div class="caixa-resultado"> 
+            <div id="resultado"></div>
+        </div>
+    </div>
+    
+<script>
+    function somar(){
+        // Pega as caixas de texto e transforma em variavel
+        let caixa1 = window.document.getElementById("txtn1");
+        let caixa2 = window.document.getElementById("txtn2");
+
+        // Pega a div resultado e transforma em variavel
+        let resultado = window.document.getElementById("resultado");
+
+        // Transforma os valores dentro da caixa e converte para
+        // valores inteiros 
+        let n1 = Number.parseInt(caixa1.value);
+        let n2 = Number.parseInt(caixa2.value);
+
+        // Realiza a soma dos valores
+        let somar = n1 + n2;
+
+        // Exibe o resultado da soma na Div Resultado
+        resultado.innerText = somar;
+    }
+</script>
+    
+</body>
+</html>
