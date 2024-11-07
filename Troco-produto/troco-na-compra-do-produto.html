@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body{
+                justify-content: center;
+                display: flex;
+            }
+            #finalizar_compra{
+                align-items: center;
+                display: flex; /* Alinha os itens */
+                flex-direction: column; /* Define a direção do alinhamento do "display: flex;" */
+                justify-content: center;
+
+                text-align: center; /* Alinha o Texto ou a caixa de texto ao centro da tela ~ Horizontalmente*/
+                border-radius: 25px; /* Deixa a borda da div arredondada */
+
+                width: 450px;
+                height: 350px;
+
+                background-color: pink; /* Cor do fundo da div */
+            }
+            .caixa-vlrs{
+                border-radius: 25px;
+            }
+            .caixa-btn{
+                border-radius: 25px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="finalizar_compra">
+            
+            <input type="text" name="nome_produto" id="nome_produto" class="caixa-vlrs">
+            <br>
+            <input type="number" name="valor_produto" id="valor_produto" class="caixa-vlrs">
+            <br>
+            <input type="number" name="valor_pago" id="valor_pago" class="caixa-vlrs">
+            <br>
+            <input type="button" value="finalizar compra" id="finalizar_compra_btn" onclick="troco()" class="caixa-btn">
+
+        </div>
+
+        <script>
+            function troco(){
+                let nome = window.document.getElementById("nome_produto");
+                let preco = window.document.getElementById("valor_produto");
+                let pagar = window.document.getElementById("valor_pago");
+
+                preco = Number(preco.value);
+                pagar = Number(pagar.value);
+
+                let troco = (pagar - preco);
+
+                preco = preco.toLocaleString('pt-br', {style: 'currency', currency:'BRL'});
+                pagar = pagar.toLocaleString('pt-br', {style: 'currency', currency:'BRL'});
+                troco = troco.toLocaleString('pt-br', {style: 'currency', currency:'BRL'});
+
+                window.alert(`Você Acabou de comprar ${nome.value} por ${preco}, como pagou ${pagar} irá receber ${troco} de troco!`)
+            }
+        </script>
+    </body>
+</html>
